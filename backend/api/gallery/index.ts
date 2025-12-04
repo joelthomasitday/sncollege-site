@@ -43,7 +43,7 @@ export async function createGallery(request: NextRequest) {
     return NextResponse.json({ success: true, data: gallery }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
-      { success: false, message: "Failed to create gallery" },
+      { success: false, message: "Failed to create gallery", error: (error as Error).message },
       { status: 500 }
     );
   }
